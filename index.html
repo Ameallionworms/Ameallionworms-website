@@ -48,51 +48,87 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* New Header Styles */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        
+        #mobile-menu.open {
+            max-height: 400px; 
+            opacity: 1;
+            padding-bottom: 1rem;
+        }
+
+        .logo-hover:hover {
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+            transform: scale(1.02);
+            transition: all 0.2s ease;
+        }
     </style>
 </head>
 <body class="antialiased text-gray-800 flex flex-col min-h-screen">
 
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <!-- ================= INTEGRATED NEW HEADER ================= -->
+    <header class="bg-brand-navy shadow-lg sticky top-0 z-50">
         <div class="h-1 w-full bg-gradient-to-r from-brand-red via-brand-gold to-brand-navy"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-24">
                 
-                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchPage('home')">
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="switchPage('home')">
                     <!-- LOGO IMAGE FIXED -->
-                    <img class="h-12 w-12 rounded-full border-2 border-brand-gold shadow-sm object-cover" 
+                    <img class="h-16 w-16 md:h-20 md:w-20 rounded-full border-2 border-brand-gold shadow-md logo-hover object-cover" 
                          src="Logo.jpeg" 
                          alt="Ameallionworms Logo"
                          onerror="this.src='https://placehold.co/150x150/1a2b4c/d4af37?text=AW'">
                     
-                    <div class="ml-3 flex flex-col justify-center">
-                        <span class="text-brand-navy font-black text-xl tracking-tight uppercase" style="font-family: 'Impact', sans-serif;">
+                    <div class="ml-4 flex flex-col justify-center">
+                        <span class="text-white font-bold text-xl md:text-3xl tracking-wider uppercase" style="font-family: 'Impact', sans-serif; letter-spacing: 0.05em;">
                             Ameallionworms
+                        </span>
+                        <span class="text-brand-gold text-xs md:text-sm font-semibold tracking-widest uppercase mt-1">
+                            Texas Bred & Raised
                         </span>
                     </div>
                 </div>
 
                 <nav class="hidden md:flex space-x-8 items-center">
-                    <button onclick="switchPage('home')" class="nav-btn nav-home text-brand-navy font-bold hover:text-brand-navy px-1 py-2 text-sm transition-colors">Home</button>
-                    <button onclick="switchPage('pricing')" class="nav-btn nav-pricing text-gray-500 hover:text-brand-navy px-1 py-2 text-sm transition-colors">Pricing</button>
-                    <button onclick="switchPage('contact')" class="nav-btn nav-contact text-gray-500 hover:text-brand-navy px-1 py-2 text-sm transition-colors">Contact Us</button>
+                    <button onclick="switchPage('home')" class="nav-btn nav-home text-brand-gold border-brand-gold hover:text-brand-gold px-3 py-2 text-sm font-medium transition-colors border-b-2">Home</button>
+                    <button onclick="switchPage('pricing')" class="nav-btn nav-pricing text-gray-300 border-transparent hover:text-brand-gold px-3 py-2 text-sm font-medium transition-colors border-b-2 hover:border-brand-gold">Pricing</button>
+                    <button onclick="switchPage('contact')" class="nav-btn nav-contact text-gray-300 border-transparent hover:text-brand-gold px-3 py-2 text-sm font-medium transition-colors border-b-2 hover:border-brand-gold">Contact Us</button>
+                    
+                    <button onclick="switchPage('contact')" class="ml-4 inline-flex items-center justify-center px-6 py-2.5 border border-transparent rounded-md shadow-sm text-sm font-bold text-brand-navy bg-brand-gold hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-navy focus:ring-brand-gold transition-all transform hover:-translate-y-0.5">
+                        Order Now
+                    </button>
                 </nav>
 
                 <div class="md:hidden flex items-center">
-                    <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-brand-navy focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <button type="button" onclick="toggleMobileMenu()" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-gold" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" id="menu-icon-closed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div class="md:hidden hidden bg-white border-b border-gray-200" id="mobile-menu">
+        <div class="md:hidden bg-brand-navy border-t border-gray-700" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <button onclick="switchPage('home'); toggleMobileMenu()" class="nav-btn nav-home text-brand-navy font-bold block px-3 py-2 rounded-md text-base w-full text-left">Home</button>
-                <button onclick="switchPage('pricing'); toggleMobileMenu()" class="nav-btn nav-pricing text-gray-500 hover:text-brand-navy block px-3 py-2 rounded-md text-base font-medium w-full text-left">Pricing</button>
-                <button onclick="switchPage('contact'); toggleMobileMenu()" class="nav-btn nav-contact text-gray-500 hover:text-brand-navy block px-3 py-2 rounded-md text-base font-medium w-full text-left">Contact Us</button>
+                <button onclick="switchPage('home'); toggleMobileMenu()" class="nav-btn nav-home bg-gray-900 text-brand-gold block w-full text-left px-3 py-2 rounded-md text-base font-medium">Home</button>
+                <button onclick="switchPage('pricing'); toggleMobileMenu()" class="nav-btn nav-pricing text-gray-300 hover:bg-gray-700 hover:text-white block w-full text-left px-3 py-2 rounded-md text-base font-medium">Pricing</button>
+                <button onclick="switchPage('contact'); toggleMobileMenu()" class="nav-btn nav-contact text-gray-300 hover:bg-gray-700 hover:text-white block w-full text-left px-3 py-2 rounded-md text-base font-medium">Contact Us</button>
+                
+                <button onclick="switchPage('contact'); toggleMobileMenu()" class="mt-4 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-bold text-brand-navy bg-brand-gold hover:bg-yellow-400">
+                    Order Now
+                </button>
             </div>
         </div>
     </header>
@@ -264,37 +300,67 @@
     </footer>
 
     <script>
+        // Page switching logic
         function switchPage(targetPageId) {
+            // Hide all pages
             const allPages = document.querySelectorAll('.page-section');
             allPages.forEach(page => {
                 page.classList.remove('active');
             });
             
+            // Show target page
             const targetPage = document.getElementById('page-' + targetPageId);
             if (targetPage) {
                 targetPage.classList.add('active');
             }
 
+            // Reset desktop navigation colors (for dark background)
             const allNavBtns = document.querySelectorAll('.nav-btn');
             allNavBtns.forEach(btn => {
-                btn.classList.remove('text-brand-navy', 'font-bold');
-                btn.classList.add('text-gray-500');
+                // Remove active styling (gold)
+                btn.classList.remove('text-brand-gold', 'border-brand-gold', 'bg-gray-900');
+                // Add inactive styling (gray/transparent)
+                btn.classList.add('text-gray-300', 'border-transparent');
             });
 
+            // Set active navigation colors
             const activeNavBtns = document.querySelectorAll('.nav-' + targetPageId);
             activeNavBtns.forEach(btn => {
-                btn.classList.remove('text-gray-500');
-                btn.classList.add('text-brand-navy', 'font-bold');
+                // Remove inactive styling
+                btn.classList.remove('text-gray-300', 'border-transparent');
+                // Add active styling
+                btn.classList.add('text-brand-gold', 'border-brand-gold');
+                
+                // If it's a mobile menu item, give it the dark background highlight
+                if(btn.parentElement.classList.contains('px-2')) {
+                    btn.classList.add('bg-gray-900');
+                }
             });
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // Mobile menu toggle logic
         function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            const iconClosed = document.getElementById('menu-icon-closed');
+            const iconOpen = document.getElementById('menu-icon-open');
+            
+            const isOpen = menu.classList.contains('open');
+            
+            if (isOpen) {
+                menu.classList.remove('open');
+                iconClosed.classList.remove('hidden');
+                iconOpen.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+            } else {
+                menu.classList.add('open');
+                iconClosed.classList.add('hidden');
+                iconOpen.classList.remove('hidden');
+                btn.setAttribute('aria-expanded', 'true');
+            }
         }
     </script>
 </body>
 </html>
- 
