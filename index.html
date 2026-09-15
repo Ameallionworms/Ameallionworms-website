@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ameallionworms - Premium Texas Bred & Raised Feeders</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#1a2b4c', 
+                            gold: '#d4af37', 
+                            red: '#bf0a30',  
+                            cardBg: '#F8FAFC' 
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Impact', 'Arial Black', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+        
+        /* Hides inactive pages */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        /* Shows active page */
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800 flex flex-col min-h-screen">
+
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="h-1 w-full bg-gradient-to-r from-brand-red via-brand-gold to-brand-navy"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo & Brand Name -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchPage('home')">
+                    <!-- LOGO IMAGE HERE -->
+                    <img class="h-12 w-12 rounded-full border-2 border-brand-gold shadow-sm object-cover" 
+                         src="logo.jpeg" 
+                         alt="Ameallionworms Logo">
+                    
+                    <div class="ml-3 flex flex-col justify-center">
+                        <span class="text-brand-navy font-black text-xl tracking-tight uppercase" style="font-family: 'Impact', sans-serif;">
+                            Ameallionworms
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <button onclick="switchPage('home')" class="nav-btn nav-home text-brand-navy font-bold hover:text-brand-navy px-1 py-2 text-sm transition-colors">Home</button>
+                    <button onclick="switchPage('pricing')" class="nav-btn nav-pricing text-gray-500 hover:text-brand-navy px-1 py-2 text-sm transition-colors">Pricing</button>
+                    <button onclick="switchPage('contact')" class="nav-btn nav-contact text-gray-500 hover:text-brand-navy px-1 py-2 text-sm transition-colors">Contact Us</button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-brand-navy focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div class="md:hidden hidden bg-white border-b border-gray-200" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="switchPage('home'); toggleMobileMenu()" class="nav-btn nav-home text-brand-navy font-bold block px-3 py-2 rounded-md text-base w-full text-left">Home</button>
+                <button onclick="switchPage('pricing'); toggleMobileMenu()" class="nav-btn nav-pricing text-gray-500 hover:text-brand-navy block px-3 py-2 rounded-md text-base font-medium w-full text-left">Pricing</button>
+                <button onclick="switchPage('contact'); toggleMobileMenu()" class="nav-btn nav-contact text-gray-500 hover:text-brand-navy block px-3 py-2 rounded-md text-base font-medium w-full text-left">Contact Us</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        
+        <!-- ================= HOME PAGE ================= -->
+        <section id="page-home" class="page-section active">
+            <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col md:flex-row">
+                
+                <div class="bg-brand-navy text-white p-8 md:p-12 md:w-1/2 flex flex-col justify-center">
+                    <span class="text-brand-gold text-sm font-bold tracking-widest uppercase mb-2">Keller, Texas</span>
+                    <h1 class="text-5xl md:text-6xl font-black mb-2 leading-tight uppercase tracking-tight">A Meallion<br>Worms</h1>
+                    <h2 class="text-xl md:text-2xl text-gray-200 font-light mb-6">Premium Texas Bred & Raised Feeders</h2>
+                    
+                    <div class="w-16 h-1 bg-brand-red mb-8"></div>
+                    
+                    <p class="text-gray-300 leading-relaxed mb-8 max-w-md text-base">
+                        We are a dedicated commercial insect rearing facility supplying high-density, healthy live mealworms and premium organic frass to the DFW metroplex.
+                    </p>
+                    
+                    <div>
+                        <button class="inline-flex items-center px-6 py-3 border border-white/30 rounded-full text-sm font-semibold bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors text-white">
+                            ★ LONE STAR QUALITY
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center space-y-10 bg-brand-cardBg md:bg-white">
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-10 w-10 rounded-full bg-brand-navy text-white font-bold text-lg">1</div>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">100% Unmedicated Stock</h3>
+                            <p class="text-gray-600 leading-relaxed">Raised purely on locally sourced coarse wheat bran and fresh root vegetables for superior vitality.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-10 w-10 rounded-full bg-brand-red text-white font-bold text-lg">2</div>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Commercial Volume Supply</h3>
+                            <p class="text-gray-600 leading-relaxed">Scalable, climate-controlled weekly harvests of 10,000-count sacks designed to supply retail and exotic pet stores.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-10 w-10 rounded-full bg-brand-gold text-white font-bold text-lg">3</div>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Organic Frass Fertilizer</h3>
+                            <p class="text-gray-600 leading-relaxed">High-nitrogen, dry-sifted insect frass. The perfect, odor-free organic soil builder for local nurseries and gardeners.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PRICING PAGE ================= -->
+        <section id="page-pricing" class="page-section">
+            
+            <div class="text-center mb-12">
+                <span class="text-brand-gold text-xs font-bold tracking-widest uppercase mb-2 block">Wholesale & Retail</span>
+                <h2 class="text-4xl md:text-5xl font-black text-brand-navy uppercase tracking-tight mb-4">Current Pricing</h2>
+                <div class="w-16 h-1 bg-brand-red mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col transform transition hover:-translate-y-1">
+                    <div class="bg-brand-navy text-white text-center py-5">
+                        <h3 class="text-lg font-bold tracking-widest uppercase">Bulk Sacks</h3>
+                    </div>
+                    <div class="p-8 text-center flex-grow flex flex-col justify-center">
+                        <div class="text-6xl font-black text-gray-900 mb-2">TBD</div>
+                        <div class="text-sm text-gray-500 font-medium mb-6">per 10,000 count sack</div>
+                        <p class="text-base text-gray-600 leading-relaxed">
+                            Unmedicated, climate-controlled live mealworms. Perfect for high-volume pet stores and exotic breeders.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col relative transform transition hover:-translate-y-1">
+                    <div class="absolute top-4 right-4 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm z-10">
+                        Popular
+                    </div>
+                    <div class="bg-brand-cardBg text-brand-navy border-b border-gray-200 text-center py-5 relative">
+                        <h3 class="text-lg font-bold tracking-widest uppercase">Retail Cups</h3>
+                    </div>
+                    <div class="p-8 text-center flex-grow flex flex-col justify-center">
+                        <div class="text-6xl font-black text-gray-900 mb-2">TBD</div>
+                        <div class="text-sm text-gray-500 font-medium mb-6">per 500 count cup</div>
+                        <p class="text-base text-gray-600 leading-relaxed">
+                            Shelf-ready split packs with custom Texas branding. Ideal for walk-in retail customers and bait shops.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col transform transition hover:-translate-y-1">
+                    <div class="bg-brand-gold text-white text-center py-5">
+                        <h3 class="text-lg font-bold tracking-widest uppercase">Organic Frass</h3>
+                    </div>
+                    <div class="p-8 text-center flex-grow flex flex-col justify-center">
+                        <div class="text-6xl font-black text-gray-900 mb-2">TBD</div>
+                        <div class="text-sm text-gray-500 font-medium mb-6">per 5 lb bag</div>
+                        <p class="text-base text-gray-600 leading-relaxed">
+                            High-nitrogen, dry-sifted insect frass. Odor-free organic soil builder for local nurseries and gardeners.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= CONTACT US PAGE ================= -->
+        <section id="page-contact" class="page-section">
+            
+            <div class="w-full h-48 md:h-64 rounded-3xl overflow-hidden mb-12 relative bg-brand-navy shadow-md">
+                <!-- LOGO IMAGE USED AS BLURRED BACKGROUND HERE TOO -->
+                <div class="absolute inset-0 bg-cover bg-center opacity-30 blur-sm mix-blend-overlay" style="background-image: url('logo.jpeg');"></div>
+                <div class="absolute inset-0 bg-brand-navy/60"></div>
+                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <span class="text-brand-gold text-xs font-bold tracking-widest uppercase mb-2">A Meallion Worms</span>
+                    <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tight">Contact Us</h1>
+                    <div class="w-16 h-1 bg-brand-red mt-6"></div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col md:flex-row max-w-5xl mx-auto">
+                
+                <div class="bg-brand-navy text-white p-8 md:p-12 md:w-1/2 flex flex-col justify-center">
+                    <span class="text-brand-gold text-sm font-bold tracking-widest uppercase mb-2">Get In Touch</span>
+                    <h2 class="text-3xl md:text-4xl font-black mb-6 uppercase tracking-tight">Become A Partner</h2>
+                    
+                    <p class="text-gray-300 leading-relaxed mb-10 text-base">
+                        Ready to secure a reliable, high-volume supply of premium Texas-raised feeders? We are currently accepting new wholesale partnerships in the DFW metroplex.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-white/10 flex items-center justify-center">
+                                <svg class="h-5 w-5 text-brand-red" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="ml-4 text-gray-200">Keller, Texas (DFW Metroplex)</span>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-white/10 flex items-center justify-center">
+                                <svg class="h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                            </div>
+                            <span class="ml-4 text-gray-200">info@ameallionworms.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center items-center text-center bg-brand-cardBg md:bg-white">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Wholesale Inquiry</h3>
+                    <p class="text-gray-600 mb-8 max-w-sm text-lg">
+                        Click the button below to email us directly and start the conversation about your store's requirements.
+                    </p>
+                    
+                    <a href="mailto:info@ameallionworms.com" class="px-8 py-3 rounded-full border-2 border-brand-red text-brand-red font-bold hover:bg-brand-red hover:text-white transition-colors flex items-center justify-center space-x-2 w-full max-w-xs">
+                        <span>EMAIL US</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white py-8 text-center text-gray-500 text-sm mt-auto border-t border-gray-100">
+        <p>&copy; 2026 Ameallionworms. All rights reserved. Keller, TX.</p>
+    </footer>
+
+    <script>
+        function switchPage(targetPageId) {
+            const allPages = document.querySelectorAll('.page-section');
+            allPages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            const targetPage = document.getElementById('page-' + targetPageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            const allNavBtns = document.querySelectorAll('.nav-btn');
+            allNavBtns.forEach(btn => {
+                btn.classList.remove('text-brand-navy', 'font-bold');
+                btn.classList.add('text-gray-500');
+            });
+
+            const activeNavBtns = document.querySelectorAll('.nav-' + targetPageId);
+            activeNavBtns.forEach(btn => {
+                btn.classList.remove('text-gray-500');
+                btn.classList.add('text-brand-navy', 'font-bold');
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
