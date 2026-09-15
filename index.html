@@ -59,10 +59,11 @@
             <div class="flex justify-between items-center h-20">
                 
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchPage('home')">
-                    <!-- LOGO IMAGE HERE -->
+                    <!-- LOGO IMAGE FIXED -->
                     <img class="h-12 w-12 rounded-full border-2 border-brand-gold shadow-sm object-cover" 
-                         src="31C1F895-73DF-467B-BB50-E6278F20154B_1_201_a_3.jpeg" 
-                         alt="Ameallionworms Logo">
+                         src="Logo.jpeg" 
+                         alt="Ameallionworms Logo"
+                         onerror="this.src='https://placehold.co/150x150/1a2b4c/d4af37?text=AW'">
                     
                     <div class="ml-3 flex flex-col justify-center">
                         <span class="text-brand-navy font-black text-xl tracking-tight uppercase" style="font-family: 'Impact', sans-serif;">
@@ -212,7 +213,8 @@
         <section id="page-contact" class="page-section">
             
             <div class="w-full h-48 md:h-64 rounded-3xl overflow-hidden mb-12 relative bg-brand-navy shadow-md">
-                <div class="absolute inset-0 bg-cover bg-center opacity-30 blur-sm mix-blend-overlay" style="background-image: url('logo.jpeg');"></div>
+                <!-- BACKGROUND IMAGE LOGO FIXED -->
+                <div class="absolute inset-0 bg-cover bg-center opacity-30 blur-sm mix-blend-overlay" style="background-image: url('Logo.jpeg');"></div>
                 <div class="absolute inset-0 bg-brand-navy/60"></div>
                 <div class="absolute inset-0 flex flex-col items-center justify-center">
                     <span class="text-brand-gold text-xs font-bold tracking-widest uppercase mb-2">A Meallion Worms</span>
@@ -295,3 +297,4 @@
     </script>
 </body>
 </html>
+ 
