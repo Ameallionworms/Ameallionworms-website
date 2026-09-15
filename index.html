@@ -6,7 +6,7 @@
     <title>Ameallionworms - Premium Texas Bred & Raised Feeders</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -17,12 +17,10 @@
                             navy: '#1a2b4c', 
                             gold: '#d4af37', 
                             red: '#bf0a30',  
-                            cardBg: '#F8FAFC' 
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        heading: ['Impact', 'Arial Black', 'sans-serif']
                     }
                 }
             }
@@ -32,7 +30,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
+            background-color: #f8fafc;
         }
         
         .page-section {
@@ -49,143 +47,109 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* New Header Styles */
-        #mobile-menu {
-            transition: all 0.3s ease-in-out;
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-        }
-        
-        #mobile-menu.open {
-            max-height: 400px; 
-            opacity: 1;
-            padding-bottom: 1rem;
-        }
-
-        .logo-hover:hover {
-            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
-            transform: scale(1.02);
-            transition: all 0.2s ease;
+        /* Forces lines of text to perfectly balance instead of leaving hanging words */
+        .balanced-text {
+            text-wrap: balance;
         }
     </style>
 </head>
 <body class="antialiased text-gray-800 flex flex-col min-h-screen">
 
-    <!-- ================= INTEGRATED NEW HEADER ================= -->
-    <header class="bg-brand-navy shadow-lg sticky top-0 z-50">
-        <div class="h-1 w-full bg-gradient-to-r from-brand-red via-brand-gold to-brand-navy"></div>
+    <!-- ================= HEADER ================= -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="h-1.5 w-full bg-gradient-to-r from-brand-red via-brand-gold to-brand-navy"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-24">
+            <div class="flex justify-between items-center h-28 md:h-32"> 
                 
-                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="switchPage('home')">
-                    <!-- LOGO IMAGE FIXED -->
-                    <img class="h-16 w-16 md:h-20 md:w-20 rounded-full border-2 border-brand-gold shadow-md logo-hover object-cover" 
-                         src="Logo.jpeg" 
-                         alt="Ameallionworms Logo"
-                         onerror="this.src='https://placehold.co/150x150/1a2b4c/d4af37?text=AW'">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchPage('home')">
+                    <!-- LOGO: Looking exactly for Logo.jpeg -->
+                    <div class="h-20 w-20 md:h-24 md:w-24 rounded-full border-2 border-brand-navy shadow-sm overflow-hidden flex-shrink-0 bg-brand-navy flex items-center justify-center">
+                        <img class="h-full w-full object-cover" 
+                             src="Logo.jpeg" 
+                             alt="Ameallionworms Logo"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <!-- Fallback if image fails to load -->
+                        <span style="display:none;" class="text-brand-gold font-bold text-3xl">AW</span>
+                    </div>
                     
-                    <div class="ml-4 flex flex-col justify-center">
-                        <span class="text-white font-bold text-xl md:text-3xl tracking-wider uppercase" style="font-family: 'Impact', sans-serif; letter-spacing: 0.05em;">
+                    <div class="ml-4 md:ml-6 flex flex-col justify-center">
+                        <span class="text-brand-navy font-black text-2xl md:text-4xl tracking-tight uppercase" style="font-family: 'Impact', 'Arial Black', sans-serif;">
                             Ameallionworms
                         </span>
-                        <span class="text-brand-gold text-xs md:text-sm font-semibold tracking-widest uppercase mt-1">
+                        <span class="text-brand-gold text-xs md:text-sm font-bold tracking-widest uppercase mt-1">
                             Texas Bred & Raised
                         </span>
                     </div>
                 </div>
 
                 <nav class="hidden md:flex space-x-8 items-center">
-                    <button onclick="switchPage('home')" class="nav-btn nav-home text-brand-gold border-brand-gold hover:text-brand-gold px-3 py-2 text-sm font-medium transition-colors border-b-2">Home</button>
-                    <button onclick="switchPage('pricing')" class="nav-btn nav-pricing text-gray-300 border-transparent hover:text-brand-gold px-3 py-2 text-sm font-medium transition-colors border-b-2 hover:border-brand-gold">Pricing</button>
-                    <button onclick="switchPage('contact')" class="nav-btn nav-contact text-gray-300 border-transparent hover:text-brand-gold px-3 py-2 text-sm font-medium transition-colors border-b-2 hover:border-brand-gold">Contact Us</button>
-                    
-                    <button onclick="switchPage('contact')" class="ml-4 inline-flex items-center justify-center px-6 py-2.5 border border-transparent rounded-md shadow-sm text-sm font-bold text-brand-navy bg-brand-gold hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-navy focus:ring-brand-gold transition-all transform hover:-translate-y-0.5">
-                        Order Now
-                    </button>
+                    <button onclick="switchPage('home')" class="nav-btn nav-home text-brand-navy border-brand-navy hover:text-brand-gold px-3 py-2 text-lg font-bold transition-colors border-b-4">Home</button>
+                    <button onclick="switchPage('pricing')" class="nav-btn nav-pricing text-gray-500 border-transparent hover:text-brand-gold px-3 py-2 text-lg font-bold transition-colors border-b-4 hover:border-brand-gold">Pricing</button>
+                    <button onclick="switchPage('contact')" class="nav-btn nav-contact text-gray-500 border-transparent hover:text-brand-gold px-3 py-2 text-lg font-bold transition-colors border-b-4 hover:border-brand-gold">Contact Us</button>
                 </nav>
-
-                <div class="md:hidden flex items-center">
-                    <button type="button" onclick="toggleMobileMenu()" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-gold" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="block h-6 w-6" id="menu-icon-closed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg class="hidden h-6 w-6" id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="md:hidden bg-brand-navy border-t border-gray-700" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <button onclick="switchPage('home'); toggleMobileMenu()" class="nav-btn nav-home bg-gray-900 text-brand-gold block w-full text-left px-3 py-2 rounded-md text-base font-medium">Home</button>
-                <button onclick="switchPage('pricing'); toggleMobileMenu()" class="nav-btn nav-pricing text-gray-300 hover:bg-gray-700 hover:text-white block w-full text-left px-3 py-2 rounded-md text-base font-medium">Pricing</button>
-                <button onclick="switchPage('contact'); toggleMobileMenu()" class="nav-btn nav-contact text-gray-300 hover:bg-gray-700 hover:text-white block w-full text-left px-3 py-2 rounded-md text-base font-medium">Contact Us</button>
-                
-                <button onclick="switchPage('contact'); toggleMobileMenu()" class="mt-4 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-bold text-brand-navy bg-brand-gold hover:bg-yellow-400">
-                    Order Now
-                </button>
             </div>
         </div>
     </header>
 
-    <main class="flex-grow w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         
         <!-- ================= HOME PAGE ================= -->
         <section id="page-home" class="page-section active">
-            <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col md:flex-row">
+            <div class="bg-white rounded-[2rem] shadow-xl overflow-hidden flex flex-col xl:flex-row border border-gray-100">
                 
-                <div class="bg-brand-navy text-white p-8 md:p-12 md:w-1/2 flex flex-col justify-center">
-                    <span class="text-brand-gold text-sm font-bold tracking-widest uppercase mb-2">Keller, Texas</span>
-                    <h1 class="text-5xl md:text-6xl font-black mb-2 leading-tight uppercase tracking-tight">A Meallion<br>Worms</h1>
-                    <h2 class="text-xl md:text-2xl text-gray-200 font-light mb-6">Premium Texas Bred & Raised Feeders</h2>
+                <!-- Left Blue Box -->
+                <div class="bg-brand-navy text-white p-8 md:p-12 xl:w-1/2 flex flex-col justify-center relative overflow-hidden">
+                    <span class="text-brand-gold text-xl md:text-2xl font-black tracking-widest uppercase mb-4">Keller, Texas</span>
                     
-                    <div class="w-16 h-1 bg-brand-red mb-8"></div>
+                    <!-- Text sizes adjusted to prevent overflow on iPad -->
+                    <h1 class="text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-none uppercase tracking-tighter text-white drop-shadow-md break-words">
+                        A Meallion<br>Worms
+                    </h1>
                     
-                    <p class="text-gray-300 leading-relaxed mb-8 max-w-md text-base">
-                        We supply healthy live mealworms directly to the DFW metroplex.
-                    </p>
+                    <h2 class="text-2xl md:text-4xl text-gray-200 font-bold mb-10 tracking-wide leading-tight balanced-text">
+                        Premium Texas Bred & Raised Feeders
+                    </h2>
+                    
+                    <div class="w-24 h-1.5 bg-brand-red mb-12"></div>
                     
                     <div>
-                        <button class="inline-flex items-center px-6 py-3 border border-white/30 rounded-full text-sm font-semibold bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors text-white">
+                        <button class="inline-flex items-center px-8 py-4 border-2 border-brand-gold rounded-full text-lg md:text-xl font-black bg-brand-gold/10 text-brand-gold tracking-wider">
                             ★ LONE STAR QUALITY
                         </button>
                     </div>
                 </div>
                 
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center space-y-10 bg-brand-cardBg md:bg-white">
+                <!-- Right White Box (No Fluff) -->
+                <div class="p-8 md:p-12 xl:w-1/2 flex flex-col justify-center space-y-10">
                     
                     <div class="flex items-start">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center h-10 w-10 rounded-full bg-brand-navy text-white font-bold text-lg">1</div>
+                            <div class="flex items-center justify-center h-16 w-16 md:h-20 md:w-20 rounded-full bg-brand-navy text-white font-black text-3xl md:text-4xl shadow-md">1</div>
                         </div>
-                        <div class="ml-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Clean Diet</h3>
-                            <p class="text-gray-600 leading-relaxed">Raised on locally sourced coarse wheat bran and fresh root vegetables.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center h-10 w-10 rounded-full bg-brand-red text-white font-bold text-lg">2</div>
-                        </div>
-                        <div class="ml-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Reliable Supply</h3>
-                            <p class="text-gray-600 leading-relaxed">Scalable, climate-controlled weekly harvests.</p>
+                        <div class="ml-6 md:ml-8 flex-grow pt-1 md:pt-3">
+                            <h3 class="text-3xl md:text-4xl font-black text-brand-navy mb-2 uppercase tracking-tight">Clean Diet</h3>
+                            <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text">Raised on locally sourced coarse wheat bran and fresh root vegetables.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center h-10 w-10 rounded-full bg-brand-gold text-white font-bold text-lg">3</div>
+                            <div class="flex items-center justify-center h-16 w-16 md:h-20 md:w-20 rounded-full bg-brand-red text-white font-black text-3xl md:text-4xl shadow-md">2</div>
                         </div>
-                        <div class="ml-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Frass</h3>
-                            <p class="text-gray-600 leading-relaxed">Dry-sifted, odor-free insect frass soil builder.</p>
+                        <div class="ml-6 md:ml-8 flex-grow pt-1 md:pt-3">
+                            <h3 class="text-3xl md:text-4xl font-black text-brand-navy mb-2 uppercase tracking-tight">Reliable Supply</h3>
+                            <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text">Scalable, climate-controlled weekly harvests.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-16 w-16 md:h-20 md:w-20 rounded-full bg-brand-gold text-white font-black text-3xl md:text-4xl shadow-md">3</div>
+                        </div>
+                        <div class="ml-6 md:ml-8 flex-grow pt-1 md:pt-3">
+                            <h3 class="text-3xl md:text-4xl font-black text-brand-navy mb-2 uppercase tracking-tight">Frass</h3>
+                            <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text">Dry-sifted, odor-free insect frass soil builder.</p>
                         </div>
                     </div>
 
@@ -195,98 +159,60 @@
 
         <!-- ================= PRICING PAGE ================= -->
         <section id="page-pricing" class="page-section">
-            
             <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-black text-brand-navy uppercase tracking-tight mb-4 mt-6">Current Pricing</h2>
-                <div class="w-16 h-1 bg-brand-red mx-auto"></div>
+                <h2 class="text-5xl md:text-7xl font-black text-brand-navy uppercase tracking-tighter mb-4 mt-8">Current Pricing</h2>
+                <div class="w-24 h-1.5 bg-brand-red mx-auto"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-                
-                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col transform transition hover:-translate-y-1">
-                    <div class="bg-brand-navy text-white text-center py-5">
-                        <h3 class="text-lg font-bold tracking-widest uppercase">Bulk Orders</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col">
+                    <div class="bg-brand-navy text-white text-center py-6">
+                        <h3 class="text-2xl font-black tracking-widest uppercase">Mealworms</h3>
                     </div>
-                    <div class="p-8 text-center flex-grow flex flex-col justify-center">
-                        <div class="text-6xl font-black text-gray-900 mb-2">TBD</div>
-                        <div class="text-sm text-gray-500 font-medium mb-6">per weight</div>
-                        <p class="text-base text-gray-600 leading-relaxed">
-                            Live Texas-raised mealworms.
-                        </p>
+                    <div class="p-12 text-center flex-grow flex flex-col justify-center bg-gray-50">
+                        <div class="text-6xl md:text-7xl font-black text-gray-900 mb-4">TBD</div>
+                        <p class="text-xl text-gray-600 font-medium balanced-text">Live Texas-raised mealworms.</p>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col relative transform transition hover:-translate-y-1">
-                    <div class="bg-brand-cardBg text-brand-navy border-b border-gray-200 text-center py-5 relative">
-                        <h3 class="text-lg font-bold tracking-widest uppercase">Retail Size</h3>
+                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col">
+                    <div class="bg-brand-gold text-white text-center py-6">
+                        <h3 class="text-2xl font-black tracking-widest uppercase">Frass</h3>
                     </div>
-                    <div class="p-8 text-center flex-grow flex flex-col justify-center">
-                        <div class="text-6xl font-black text-gray-900 mb-2">TBD</div>
-                        <div class="text-sm text-gray-500 font-medium mb-6">per cup</div>
-                        <p class="text-base text-gray-600 leading-relaxed">
-                            Portioned live mealworms.
-                        </p>
+                    <div class="p-12 text-center flex-grow flex flex-col justify-center bg-gray-50">
+                        <div class="text-6xl md:text-7xl font-black text-gray-900 mb-4">TBD</div>
+                        <p class="text-xl text-gray-600 font-medium balanced-text">Dry-sifted, odor-free insect frass.</p>
                     </div>
                 </div>
-
-                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col transform transition hover:-translate-y-1">
-                    <div class="bg-brand-gold text-white text-center py-5">
-                        <h3 class="text-lg font-bold tracking-widest uppercase">Frass</h3>
-                    </div>
-                    <div class="p-8 text-center flex-grow flex flex-col justify-center">
-                        <div class="text-6xl font-black text-gray-900 mb-2">TBD</div>
-                        <div class="text-sm text-gray-500 font-medium mb-6">per bag</div>
-                        <p class="text-base text-gray-600 leading-relaxed">
-                            Dry-sifted, odor-free insect frass.
-                        </p>
-                    </div>
-                </div>
-
             </div>
         </section>
 
         <!-- ================= CONTACT US PAGE ================= -->
         <section id="page-contact" class="page-section">
-            
-            <div class="w-full h-48 md:h-64 rounded-3xl overflow-hidden mb-12 relative bg-brand-navy shadow-md">
-                <!-- BACKGROUND IMAGE LOGO FIXED -->
-                <div class="absolute inset-0 bg-cover bg-center opacity-30 blur-sm mix-blend-overlay" style="background-image: url('Logo.jpeg');"></div>
-                <div class="absolute inset-0 bg-brand-navy/60"></div>
-                <div class="absolute inset-0 flex flex-col items-center justify-center">
-                    <span class="text-brand-gold text-xs font-bold tracking-widest uppercase mb-2">A Meallion Worms</span>
-                    <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tight">Contact Us</h1>
-                    <div class="w-16 h-1 bg-brand-red mt-6"></div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col max-w-2xl mx-auto">
-                
-                <div class="bg-brand-navy text-white p-8 md:p-12 w-full flex flex-col items-center text-center">
-                    <span class="text-brand-gold text-sm font-bold tracking-widest uppercase mb-2">Get In Touch</span>
-                    <h2 class="text-3xl md:text-4xl font-black mb-6 uppercase tracking-tight">Become A Partner</h2>
+            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden flex flex-col max-w-4xl mx-auto">
+                <div class="bg-brand-navy p-12 md:p-16 w-full flex flex-col items-center text-center">
+                    <span class="text-brand-gold text-xl font-black tracking-widest uppercase mb-2">Ameallionworms</span>
+                    <h2 class="text-5xl md:text-7xl font-black text-white mb-8 uppercase tracking-tighter">Contact Us</h2>
+                    <div class="w-24 h-1.5 bg-brand-red mb-12"></div>
                     
-                    <p class="text-gray-300 leading-relaxed mb-10 text-base">
-                        Ready to secure a reliable supply of premium Texas-raised mealworms? We are currently accepting new wholesale partnerships.
-                    </p>
-                    
-                    <div class="space-y-6 w-full max-w-sm mx-auto text-left">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-white/10 flex items-center justify-center">
-                                <svg class="h-5 w-5 text-brand-red" fill="currentColor" viewBox="0 0 20 20">
+                    <div class="space-y-6 w-full max-w-md mx-auto text-left">
+                        <div class="flex items-center bg-white p-6 rounded-2xl shadow-sm">
+                            <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-100 flex items-center justify-center">
+                                <svg class="h-8 w-8 text-brand-red" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <span class="ml-4 text-gray-200 font-medium">Keller, Texas (DFW Metroplex)</span>
+                            <span class="ml-6 text-brand-navy font-bold text-2xl">Keller, Texas</span>
                         </div>
                         
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-white/10 flex items-center justify-center">
-                                <svg class="h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="flex items-center bg-white p-6 rounded-2xl shadow-sm">
+                            <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-100 flex items-center justify-center">
+                                <svg class="h-8 w-8 text-brand-navy" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                                 </svg>
                             </div>
-                            <span class="ml-4 text-gray-200 font-medium">info@ameallionworms.com</span>
+                            <span class="ml-6 text-brand-navy font-bold text-2xl">info@ameallionworms.com</span>
                         </div>
                     </div>
                 </div>
@@ -295,71 +221,35 @@
 
     </main>
 
-    <footer class="bg-white py-8 text-center text-gray-500 text-sm mt-auto border-t border-gray-100">
+    <footer class="bg-gray-100 py-10 text-center text-gray-500 text-base font-medium mt-auto border-t border-gray-200">
         <p>&copy; 2026 Ameallionworms. All rights reserved. Keller, TX.</p>
     </footer>
 
     <script>
-        // Page switching logic
         function switchPage(targetPageId) {
-            // Hide all pages
             const allPages = document.querySelectorAll('.page-section');
             allPages.forEach(page => {
                 page.classList.remove('active');
             });
             
-            // Show target page
             const targetPage = document.getElementById('page-' + targetPageId);
             if (targetPage) {
                 targetPage.classList.add('active');
             }
 
-            // Reset desktop navigation colors (for dark background)
-            const allNavBtns = document.querySelectorAll('.nav-btn');
-            allNavBtns.forEach(btn => {
-                // Remove active styling (gold)
-                btn.classList.remove('text-brand-gold', 'border-brand-gold', 'bg-gray-900');
-                // Add inactive styling (gray/transparent)
-                btn.classList.add('text-gray-300', 'border-transparent');
+            const desktopNavBtns = document.querySelectorAll('header nav .nav-btn');
+            desktopNavBtns.forEach(btn => {
+                btn.classList.remove('text-brand-navy', 'border-brand-navy');
+                btn.classList.add('text-gray-500', 'border-transparent');
             });
 
-            // Set active navigation colors
-            const activeNavBtns = document.querySelectorAll('.nav-' + targetPageId);
-            activeNavBtns.forEach(btn => {
-                // Remove inactive styling
-                btn.classList.remove('text-gray-300', 'border-transparent');
-                // Add active styling
-                btn.classList.add('text-brand-gold', 'border-brand-gold');
-                
-                // If it's a mobile menu item, give it the dark background highlight
-                if(btn.parentElement.classList.contains('px-2')) {
-                    btn.classList.add('bg-gray-900');
-                }
+            const activeDesktopBtns = document.querySelectorAll('header nav .nav-' + targetPageId);
+            activeDesktopBtns.forEach(btn => {
+                btn.classList.remove('text-gray-500', 'border-transparent');
+                btn.classList.add('text-brand-navy', 'border-brand-navy');
             });
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Mobile menu toggle logic
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const btn = document.getElementById('mobile-menu-btn');
-            const iconClosed = document.getElementById('menu-icon-closed');
-            const iconOpen = document.getElementById('menu-icon-open');
-            
-            const isOpen = menu.classList.contains('open');
-            
-            if (isOpen) {
-                menu.classList.remove('open');
-                iconClosed.classList.remove('hidden');
-                iconOpen.classList.add('hidden');
-                btn.setAttribute('aria-expanded', 'false');
-            } else {
-                menu.classList.add('open');
-                iconClosed.classList.add('hidden');
-                iconOpen.classList.remove('hidden');
-                btn.setAttribute('aria-expanded', 'true');
-            }
         }
     </script>
 </body>
