@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Meallionworms - Premium Texas Raised Mealworms</title>
+    <title>A MEALLION WORMS - Premium Texas Raised Mealworms</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -51,23 +51,24 @@
             text-wrap: balance;
         }
 
-        /* Responsive typography that won't break the box on iPads */
+        /* Responsive typography that fits iPads perfectly */
         .responsive-title {
-            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            font-size: clamp(3.2rem, 7vw, 6.5rem);
             line-height: 0.95;
             word-wrap: break-word;
         }
         
         .responsive-subtitle {
-            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-size: clamp(1.4rem, 3.5vw, 2.5rem);
             line-height: 1.2;
         }
         
-        /* Force email to stay on one line and shrink slightly on iPads */
+        /* Force email to stay on one line */
         .nowrap-email {
             white-space: nowrap;
             overflow: hidden;
-            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            text-overflow: ellipsis;
+            font-size: clamp(0.8rem, 2.5vw, 1.25rem);
         }
     </style>
 </head>
@@ -80,12 +81,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-24 md:h-32"> 
                 
+                <!-- LOGO -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="switchPage('home')">
-                    <!-- LOGO -->
                     <div class="h-16 w-16 md:h-24 md:w-24 rounded-full border-2 border-brand-gold shadow-md overflow-hidden flex-shrink-0 bg-brand-navy flex items-center justify-center transition-transform group-hover:scale-105">
                         <img class="h-full w-full object-cover" 
                              src="Logo.jpeg" 
-                             alt="A Meallionworms Logo"
+                             alt="A MEALLION WORMS Logo"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <!-- Fallback if image fails to load -->
                         <span style="display:none;" class="text-brand-gold font-bold text-2xl md:text-4xl w-full h-full items-center justify-center">AW</span>
@@ -101,11 +102,30 @@
                     </div>
                 </div>
 
+                <!-- Desktop Navigation -->
                 <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center">
                     <button onclick="switchPage('home')" class="nav-btn nav-home text-brand-gold border-brand-gold px-2 py-2 text-sm lg:text-base font-bold transition-colors border-b-2">Home</button>
                     <button onclick="switchPage('pricing')" class="nav-btn nav-pricing text-gray-300 border-transparent hover:text-brand-gold px-2 py-2 text-sm lg:text-base font-bold transition-colors border-b-2 hover:border-brand-gold">Pricing</button>
                     <button onclick="switchPage('contact')" class="nav-btn nav-contact text-gray-300 border-transparent hover:text-brand-gold px-2 py-2 text-sm lg:text-base font-bold transition-colors border-b-2 hover:border-brand-gold">Contact Us</button>
                 </nav>
+
+                <!-- Mobile Navigation Hamburger -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-brand-gold hover:text-white focus:outline-none p-2">
+                        <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-navy border-t border-brand-gold/30 shadow-inner w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <button onclick="switchPage('home')" class="nav-btn-mobile nav-home-mobile block w-full text-left px-4 py-3 text-brand-gold font-bold text-xl rounded-md bg-white/5">Home</button>
+                <button onclick="switchPage('pricing')" class="nav-btn-mobile nav-pricing-mobile block w-full text-left px-4 py-3 text-gray-300 hover:text-brand-gold font-bold text-xl rounded-md">Pricing</button>
+                <button onclick="switchPage('contact')" class="nav-btn-mobile nav-contact-mobile block w-full text-left px-4 py-3 text-gray-300 hover:text-brand-gold font-bold text-xl rounded-md">Contact Us</button>
             </div>
         </div>
     </header>
@@ -120,17 +140,14 @@
                 <div class="bg-brand-navy text-white p-8 md:p-12 lg:p-16 lg:w-1/2 flex flex-col justify-center relative overflow-hidden">
                     <span class="text-brand-gold text-xl md:text-2xl font-black tracking-widest uppercase mb-4">Keller, Texas</span>
                     
-                    <!-- Massive Title -->
                     <h1 class="responsive-title font-black mb-6 uppercase tracking-tighter text-white drop-shadow-md" style="font-family: 'Impact', sans-serif;">
                         A MEALLION<br>WORMS
                     </h1>
                     
-                    <!-- Subtitle -->
                     <h2 class="responsive-subtitle text-gray-200 font-bold mb-12 tracking-wide balanced-text">
                         Premium Texas Raised Mealworms
                     </h2>
                     
-                    <!-- Badge -->
                     <div>
                         <span class="inline-flex items-center px-8 py-5 border-2 border-brand-gold rounded-full text-lg md:text-xl font-black bg-brand-gold/10 text-brand-gold tracking-wider shadow-sm">
                             ★ LONE STAR QUALITY
@@ -138,10 +155,8 @@
                     </div>
                 </div>
                 
-                <!-- Right White Box (Features) -->
+                <!-- Right White Box -->
                 <div class="p-8 md:p-12 lg:w-1/2 flex flex-col justify-center space-y-16">
-                    
-                    <!-- Item 1 -->
                     <div class="flex items-start">
                         <div class="flex-shrink-0">
                             <div class="flex items-center justify-center h-20 w-20 rounded-full bg-brand-navy text-white font-black text-4xl shadow-md">1</div>
@@ -152,7 +167,6 @@
                         </div>
                     </div>
 
-                    <!-- Item 2 -->
                     <div class="flex items-start">
                         <div class="flex-shrink-0">
                             <div class="flex items-center justify-center h-20 w-20 rounded-full bg-brand-red text-white font-black text-4xl shadow-md">2</div>
@@ -163,7 +177,6 @@
                         </div>
                     </div>
 
-                    <!-- Item 3 -->
                     <div class="flex items-start">
                         <div class="flex-shrink-0">
                             <div class="flex items-center justify-center h-20 w-20 rounded-full bg-brand-gold text-white font-black text-4xl shadow-md">3</div>
@@ -173,7 +186,6 @@
                             <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text">Dry-sifted, odor-free insect frass soil builder.</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -186,8 +198,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
-                
-                <!-- Bulk Orders -->
                 <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col transform transition hover:-translate-y-1 hover:shadow-2xl">
                     <div class="bg-brand-navy text-white text-center py-6">
                         <h3 class="text-xl font-black tracking-widest uppercase">Bulk Orders</h3>
@@ -199,19 +209,17 @@
                     </div>
                 </div>
 
-                <!-- Retail Size -->
                 <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col transform transition hover:-translate-y-1 hover:shadow-2xl">
                     <div class="bg-brand-red text-white text-center py-6">
                         <h3 class="text-xl font-black tracking-widest uppercase">Retail Size</h3>
                     </div>
                     <div class="p-10 text-center flex-grow flex flex-col justify-center bg-gray-50">
                         <div class="text-6xl font-black text-gray-900 mb-2" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">TBD</div>
-                        <div class="text-brand-red font-bold mb-6 tracking-wide uppercase text-sm">small consumer batches</div>
+                        <div class="text-brand-red font-bold mb-6 tracking-wide uppercase text-sm">Small consumer batches</div>
                         <p class="text-lg text-gray-600 font-medium balanced-text">Portioned live mealworms.</p>
                     </div>
                 </div>
 
-                <!-- Frass -->
                 <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col transform transition hover:-translate-y-1 hover:shadow-2xl">
                     <div class="bg-brand-gold text-white text-center py-6">
                         <h3 class="text-xl font-black tracking-widest uppercase">Frass</h3>
@@ -222,7 +230,6 @@
                         <p class="text-lg text-gray-600 font-medium balanced-text">Dry-sifted, odor-free insect frass.</p>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -230,81 +237,91 @@
         <section id="page-contact" class="page-section">
             <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden flex flex-col max-w-6xl mx-auto mt-8">
                 <div class="bg-brand-navy p-8 md:p-20 w-full flex flex-col items-center text-center relative">
-                    
                     <div class="relative z-10 w-full">
-                        <span class="text-brand-gold text-xl md:text-2xl font-black tracking-widest uppercase mb-2 block">A Meallionworms</span>
+                        <span class="text-brand-gold text-xl md:text-2xl font-black tracking-widest uppercase mb-2 block">A MEALLION WORMS</span>
                         <h2 class="text-5xl md:text-7xl font-black text-white mb-8 uppercase tracking-tighter" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">Contact Us</h2>
                         <div class="w-24 h-1.5 bg-brand-red mb-12 mx-auto"></div>
                         
-                        <div class="flex flex-col md:flex-row justify-center items-stretch gap-6 md:gap-8 w-full max-w-4xl mx-auto">
-                            
+                        <div class="flex flex-col md:flex-row justify-center items-stretch gap-6 w-full max-w-5xl mx-auto">
                             <!-- Location Card -->
-                            <div class="flex items-center bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:scale-105">
-                                <div class="flex-shrink-0 h-14 w-14 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold">
+                            <div class="flex items-center bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:-translate-y-1">
+                                <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold">
                                     <svg class="h-8 w-8 text-brand-navy" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <div class="ml-5 text-left">
-                                    <span class="block text-brand-navy font-black text-2xl md:text-3xl tracking-tight">Keller, TX</span>
-                                    <span class="block text-gray-500 font-bold mt-1 uppercase tracking-widest text-sm">DFW Metroplex</span>
+                                <div class="ml-6 text-left">
+                                    <span class="block text-brand-navy font-black text-2xl md:text-3xl tracking-tight">Keller, Texas</span>
+                                    <span class="block text-gray-500 font-bold uppercase tracking-wider text-sm mt-1">DFW Metroplex</span>
                                 </div>
                             </div>
 
                             <!-- Email Card -->
-                            <div class="flex items-center bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:scale-105">
-                                <div class="flex-shrink-0 h-14 w-14 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold">
+                            <div class="flex items-center bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:-translate-y-1 overflow-hidden">
+                                <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold">
                                     <svg class="h-8 w-8 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                                     </svg>
                                 </div>
-                                <div class="ml-5 text-left w-full overflow-hidden">
+                                <div class="ml-6 text-left overflow-hidden min-w-0">
                                     <span class="block text-brand-navy font-black text-2xl md:text-3xl tracking-tight">Email Us</span>
-                                    <span class="block text-gray-500 font-bold mt-1 tracking-wider uppercase nowrap-email">INFO@AMEALLIONWORMS.COM</span>
+                                    <span class="block text-gray-500 font-bold uppercase tracking-wider mt-1 nowrap-email">info@ameallionworms.com</span>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="bg-brand-navy py-10 text-center text-gray-400 text-sm font-medium mt-auto border-t-4 border-brand-gold">
-        <p>&copy; 2026 A Meallionworms. All rights reserved. Keller, TX.</p>
+        <p>&copy; 2026 Ameallionworms. All rights reserved. Keller, TX.</p>
     </footer>
 
     <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
         function switchPage(targetPageId) {
-            // Hide all pages
             const allPages = document.querySelectorAll('.page-section');
             allPages.forEach(page => {
                 page.classList.remove('active');
             });
             
-            // Show target page
             const targetPage = document.getElementById('page-' + targetPageId);
             if (targetPage) {
                 targetPage.classList.add('active');
             }
 
-            // Reset all desktop nav buttons to grey text/transparent border
             const desktopNavBtns = document.querySelectorAll('header nav .nav-btn');
             desktopNavBtns.forEach(btn => {
                 btn.classList.remove('text-brand-gold', 'border-brand-gold');
                 btn.classList.add('text-gray-300', 'border-transparent');
             });
 
-            // Highlight the active desktop button with Gold text and border
             const activeDesktopBtns = document.querySelectorAll('header nav .nav-' + targetPageId);
             activeDesktopBtns.forEach(btn => {
                 btn.classList.remove('text-gray-300', 'border-transparent');
                 btn.classList.add('text-brand-gold', 'border-brand-gold');
             });
 
-            // Scroll gently to top
+            const mobileNavBtns = document.querySelectorAll('.nav-btn-mobile');
+            mobileNavBtns.forEach(btn => {
+                btn.classList.remove('text-brand-gold', 'bg-white/5');
+                btn.classList.add('text-white');
+            });
+
+            const activeMobileBtns = document.querySelectorAll('.nav-' + targetPageId + '-mobile');
+            activeMobileBtns.forEach(btn => {
+                btn.classList.remove('text-white');
+                btn.classList.add('text-brand-gold', 'bg-white/5');
+            });
+
+            // Auto-close menu
+            document.getElementById('mobile-menu').classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
