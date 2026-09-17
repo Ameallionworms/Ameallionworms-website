@@ -51,7 +51,6 @@
             text-wrap: balance;
         }
 
-        /* Responsive typography that fits iPads perfectly */
         .responsive-title {
             font-size: clamp(3.2rem, 7vw, 6.5rem);
             line-height: 0.95;
@@ -66,7 +65,6 @@
 </head>
 <body class="antialiased text-gray-800 flex flex-col min-h-screen">
 
-    <!-- ================= HEADER ================= -->
     <header class="bg-brand-navy shadow-lg sticky top-0 z-50">
         <div class="h-1.5 w-full bg-gradient-to-r from-brand-red via-brand-gold to-brand-navy"></div>
         
@@ -80,7 +78,6 @@
                              src="Logo.jpeg" 
                              alt="A MEALLION WORMS Logo"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <!-- Fallback if image fails to load -->
                         <span style="display:none;" class="text-brand-gold font-bold text-xl md:text-3xl w-full h-full items-center justify-center text-center leading-none">AW</span>
                     </div>
                     
@@ -187,17 +184,19 @@
             <div class="text-center mb-12">
                 <h2 class="text-5xl md:text-7xl font-black text-brand-navy uppercase tracking-tighter mb-4 mt-8" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">PRICING</h2>
                 <div class="w-24 h-1.5 bg-brand-red mx-auto"></div>
-                <p class="text-2xl md:text-3xl text-brand-navy mt-8 max-w-3xl mx-auto font-extrabold tracking-tight">Flexible volumes tailored to your needs.</p>
+                <!-- Resized bold subheadline -->
+                <p class="text-2xl md:text-3xl lg:text-4xl text-brand-navy mt-10 max-w-4xl mx-auto font-black tracking-tight uppercase leading-tight balanced-text">Flexible volumes tailored to your needs</p>
             </div>
 
             <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden max-w-4xl mx-auto mx-4 sm:mx-auto">
                 <div class="p-8 md:p-12 text-center">
-                    <p class="text-lg md:text-xl text-gray-600 font-medium balanced-text max-w-2xl mx-auto mb-8">
-                        Whether you are looking to secure large, recurring monthly harvests for your local business or just need a smaller size for individual use, we can accommodate your requirements. We also offer premium, dry-sifted insect frass for soil building.
+                    <!-- Clean summary without oversharing B2B secrets -->
+                    <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text max-w-3xl mx-auto mb-8 leading-relaxed">
+                        Whether you are looking to secure large, recurring monthly harvests for your local business or just need a smaller retail size for individual use, we can accommodate your requirements. We also offer premium, dry-sifted insect frass for soil building.
                     </p>
                 </div>
                 
-                <!-- Single Call to Action -->
+                <!-- Single Call to Action with non-wrapping email -->
                 <div class="bg-brand-navy text-white text-center py-12 px-6 border-t-4 border-brand-gold">
                     <span class="block text-brand-gold font-bold uppercase tracking-widest mb-3 text-sm md:text-base">Contact us for current rates</span>
                     <a href="mailto:info@ameallionworms.com" class="inline-block text-2xl md:text-4xl lg:text-5xl font-black tracking-tight hover:text-brand-gold transition-colors whitespace-nowrap">
@@ -218,28 +217,28 @@
                         
                         <div class="flex flex-col md:flex-row justify-center items-stretch gap-6 w-full max-w-5xl mx-auto">
                             <!-- Location Card -->
-                            <div class="flex flex-col sm:flex-row items-center sm:items-start bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:-translate-y-1">
-                                <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold mb-4 sm:mb-0">
+                            <div class="flex flex-col items-center bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:-translate-y-1">
+                                <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold mb-4">
                                     <svg class="h-8 w-8 text-brand-navy" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <div class="sm:ml-6 text-center sm:text-left w-full">
+                                <div class="text-center w-full">
                                     <span class="block text-brand-navy font-black text-2xl md:text-3xl tracking-tight">Keller, Texas</span>
                                     <span class="block text-gray-500 font-bold uppercase tracking-wider text-sm mt-1">DFW Metroplex</span>
                                 </div>
                             </div>
 
-                            <!-- Email Card -->
-                            <div class="flex flex-col sm:flex-row items-center sm:items-start bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:-translate-y-1">
-                                <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold mb-4 sm:mb-0">
+                            <!-- Email Card (Stacked icon on mobile/desktop to prevent wrapping) -->
+                            <div class="flex flex-col items-center bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:-translate-y-1">
+                                <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold mb-4">
                                     <svg class="h-8 w-8 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                                     </svg>
                                 </div>
-                                <div class="sm:ml-6 text-center sm:text-left w-full">
+                                <div class="text-center w-full">
                                     <span class="block text-brand-navy font-black text-2xl md:text-3xl tracking-tight">Email Us</span>
-                                    <a href="mailto:info@ameallionworms.com" class="inline-block text-gray-500 font-bold mt-1 hover:text-brand-gold transition-colors text-sm sm:text-base whitespace-nowrap">info@ameallionworms.com</a>
+                                    <a href="mailto:info@ameallionworms.com" class="inline-block text-gray-500 font-bold mt-2 hover:text-brand-gold transition-colors text-base md:text-lg whitespace-nowrap">info@ameallionworms.com</a>
                                 </div>
                             </div>
                         </div>
