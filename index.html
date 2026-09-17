@@ -62,14 +62,6 @@
             font-size: clamp(1.4rem, 3.5vw, 2.5rem);
             line-height: 1.2;
         }
-        
-        /* Force email to stay on one line */
-        .nowrap-email {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-size: clamp(0.8rem, 2.5vw, 1.25rem);
-        }
     </style>
 </head>
 <body class="antialiased text-gray-800 flex flex-col min-h-screen">
@@ -89,7 +81,7 @@
                              alt="A MEALLION WORMS Logo"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <!-- Fallback if image fails to load -->
-                        <span style="display:none;" class="text-brand-gold font-bold text-2xl md:text-4xl w-full h-full items-center justify-center">AW</span>
+                        <span style="display:none;" class="text-brand-gold font-bold text-xl md:text-3xl w-full h-full items-center justify-center text-center leading-none">AW</span>
                     </div>
                     
                     <div class="ml-4 md:ml-6 flex flex-col justify-center">
@@ -123,9 +115,9 @@
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-brand-navy border-t border-brand-gold/30 shadow-inner w-full">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <button onclick="switchPage('home')" class="nav-btn-mobile nav-home-mobile block w-full text-left px-4 py-3 text-brand-gold font-bold text-xl rounded-md bg-white/5">Home</button>
-                <button onclick="switchPage('pricing')" class="nav-btn-mobile nav-pricing-mobile block w-full text-left px-4 py-3 text-gray-300 hover:text-brand-gold font-bold text-xl rounded-md">Pricing</button>
-                <button onclick="switchPage('contact')" class="nav-btn-mobile nav-contact-mobile block w-full text-left px-4 py-3 text-gray-300 hover:text-brand-gold font-bold text-xl rounded-md">Contact Us</button>
+                <button onclick="switchPage('home'); toggleMobileMenu()" class="nav-btn-mobile nav-home-mobile block w-full text-left px-4 py-3 text-brand-gold font-bold text-xl rounded-md bg-white/5">Home</button>
+                <button onclick="switchPage('pricing'); toggleMobileMenu()" class="nav-btn-mobile nav-pricing-mobile block w-full text-left px-4 py-3 text-gray-300 hover:text-brand-gold font-bold text-xl rounded-md">Pricing</button>
+                <button onclick="switchPage('contact'); toggleMobileMenu()" class="nav-btn-mobile nav-contact-mobile block w-full text-left px-4 py-3 text-gray-300 hover:text-brand-gold font-bold text-xl rounded-md">Contact Us</button>
             </div>
         </div>
     </header>
@@ -162,8 +154,8 @@
                             <div class="flex items-center justify-center h-20 w-20 rounded-full bg-brand-navy text-white font-black text-4xl shadow-md">1</div>
                         </div>
                         <div class="ml-8 flex-grow pt-3">
-                            <h3 class="text-3xl md:text-4xl font-black text-brand-navy mb-3 uppercase tracking-tight" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">Clean Diet</h3>
-                            <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text">Raised on locally sourced coarse wheat bran and fresh root vegetables.</p>
+                            <h3 class="text-3xl md:text-4xl font-black text-brand-navy mb-3 uppercase tracking-tight" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">Reliable Supply</h3>
+                            <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text">Scalable, climate-controlled weekly harvests for our local partners.</p>
                         </div>
                     </div>
 
@@ -172,8 +164,8 @@
                             <div class="flex items-center justify-center h-20 w-20 rounded-full bg-brand-red text-white font-black text-4xl shadow-md">2</div>
                         </div>
                         <div class="ml-8 flex-grow pt-3">
-                            <h3 class="text-3xl md:text-4xl font-black text-brand-navy mb-3 uppercase tracking-tight" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">Reliable Supply</h3>
-                            <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text">Scalable, climate-controlled weekly harvests.</p>
+                            <h3 class="text-3xl md:text-4xl font-black text-brand-navy mb-3 uppercase tracking-tight" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">Local Delivery</h3>
+                            <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text">Bypass expensive overnight shipping, weather delays, and costly transit die-offs with direct DFW delivery.</p>
                         </div>
                     </div>
 
@@ -182,8 +174,8 @@
                             <div class="flex items-center justify-center h-20 w-20 rounded-full bg-brand-gold text-white font-black text-4xl shadow-md">3</div>
                         </div>
                         <div class="ml-8 flex-grow pt-3">
-                            <h3 class="text-3xl md:text-4xl font-black text-brand-navy mb-3 uppercase tracking-tight" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">Frass</h3>
-                            <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text">Dry-sifted, odor-free insect frass soil builder.</p>
+                            <h3 class="text-3xl md:text-4xl font-black text-brand-navy mb-3 uppercase tracking-tight" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">Clean Frass</h3>
+                            <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text">Dry-sifted, odor-free premium insect frass for an exceptional organic soil builder.</p>
                         </div>
                     </div>
                 </div>
@@ -192,43 +184,25 @@
 
         <!-- ================= PRICING PAGE ================= -->
         <section id="page-pricing" class="page-section">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-7xl font-black text-brand-navy uppercase tracking-tighter mb-4 mt-8" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">CURRENT PRICING</h2>
+            <div class="text-center mb-12">
+                <h2 class="text-5xl md:text-7xl font-black text-brand-navy uppercase tracking-tighter mb-4 mt-8" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">PRICING</h2>
                 <div class="w-24 h-1.5 bg-brand-red mx-auto"></div>
+                <p class="text-xl text-gray-600 mt-6 max-w-2xl mx-auto font-medium">Flexible volumes tailored to your needs.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
-                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col transform transition hover:-translate-y-1 hover:shadow-2xl">
-                    <div class="bg-brand-navy text-white text-center py-6">
-                        <h3 class="text-xl font-black tracking-widest uppercase">Bulk Orders</h3>
-                    </div>
-                    <div class="p-10 text-center flex-grow flex flex-col justify-center bg-gray-50">
-                        <div class="text-6xl font-black text-gray-900 mb-2" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">TBD</div>
-                        <div class="text-gray-500 font-bold mb-6 tracking-wide uppercase text-sm">per 10,000+</div>
-                        <p class="text-lg text-gray-600 font-medium balanced-text">Live Texas-raised mealworms.</p>
-                    </div>
+            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden max-w-4xl mx-auto mx-4 sm:mx-auto">
+                <div class="p-8 md:p-12 text-center">
+                    <p class="text-lg md:text-xl text-gray-600 font-medium balanced-text max-w-2xl mx-auto mb-8">
+                        Whether you are looking to secure large, recurring monthly harvests for your local business or just need a smaller size for individual use, we can accommodate your requirements. We also offer premium, dry-sifted insect frass for soil building.
+                    </p>
                 </div>
-
-                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col transform transition hover:-translate-y-1 hover:shadow-2xl">
-                    <div class="bg-brand-red text-white text-center py-6">
-                        <h3 class="text-xl font-black tracking-widest uppercase">Retail Size</h3>
-                    </div>
-                    <div class="p-10 text-center flex-grow flex flex-col justify-center bg-gray-50">
-                        <div class="text-6xl font-black text-gray-900 mb-2" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">TBD</div>
-                        <div class="text-brand-red font-bold mb-6 tracking-wide uppercase text-sm">Small consumer batches</div>
-                        <p class="text-lg text-gray-600 font-medium balanced-text">Portioned live mealworms.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col transform transition hover:-translate-y-1 hover:shadow-2xl">
-                    <div class="bg-brand-gold text-white text-center py-6">
-                        <h3 class="text-xl font-black tracking-widest uppercase">Frass</h3>
-                    </div>
-                    <div class="p-10 text-center flex-grow flex flex-col justify-center bg-gray-50">
-                        <div class="text-6xl font-black text-gray-900 mb-2" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">TBD</div>
-                        <div class="text-gray-500 font-bold mb-6 tracking-wide uppercase text-sm">per bag</div>
-                        <p class="text-lg text-gray-600 font-medium balanced-text">Dry-sifted, odor-free insect frass.</p>
-                    </div>
+                
+                <!-- Single Call to Action -->
+                <div class="bg-brand-navy text-white text-center py-12 px-6 border-t-4 border-brand-gold">
+                    <span class="block text-brand-gold font-bold uppercase tracking-widest mb-3 text-sm md:text-base">Contact us for current rates</span>
+                    <a href="mailto:info@ameallionworms.com" class="inline-block text-2xl md:text-4xl lg:text-5xl font-black tracking-tight hover:text-brand-gold transition-colors whitespace-nowrap">
+                        info@ameallionworms.com
+                    </a>
                 </div>
             </div>
         </section>
@@ -244,28 +218,28 @@
                         
                         <div class="flex flex-col md:flex-row justify-center items-stretch gap-6 w-full max-w-5xl mx-auto">
                             <!-- Location Card -->
-                            <div class="flex items-center bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:-translate-y-1">
-                                <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold">
+                            <div class="flex flex-col sm:flex-row items-center sm:items-start bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:-translate-y-1">
+                                <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold mb-4 sm:mb-0">
                                     <svg class="h-8 w-8 text-brand-navy" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <div class="ml-6 text-left">
+                                <div class="sm:ml-6 text-center sm:text-left w-full">
                                     <span class="block text-brand-navy font-black text-2xl md:text-3xl tracking-tight">Keller, Texas</span>
                                     <span class="block text-gray-500 font-bold uppercase tracking-wider text-sm mt-1">DFW Metroplex</span>
                                 </div>
                             </div>
 
                             <!-- Email Card -->
-                            <div class="flex items-center bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:-translate-y-1 overflow-hidden">
-                                <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold">
+                            <div class="flex flex-col sm:flex-row items-center sm:items-start bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:-translate-y-1">
+                                <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold mb-4 sm:mb-0">
                                     <svg class="h-8 w-8 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                                     </svg>
                                 </div>
-                                <div class="ml-6 text-left overflow-hidden min-w-0">
+                                <div class="sm:ml-6 text-center sm:text-left w-full">
                                     <span class="block text-brand-navy font-black text-2xl md:text-3xl tracking-tight">Email Us</span>
-                                    <span class="block text-gray-500 font-bold uppercase tracking-wider mt-1 nowrap-email">info@ameallionworms.com</span>
+                                    <a href="mailto:info@ameallionworms.com" class="inline-block text-gray-500 font-bold mt-1 hover:text-brand-gold transition-colors text-sm sm:text-base whitespace-nowrap">info@ameallionworms.com</a>
                                 </div>
                             </div>
                         </div>
@@ -276,7 +250,7 @@
     </main>
 
     <footer class="bg-brand-navy py-10 text-center text-gray-400 text-sm font-medium mt-auto border-t-4 border-brand-gold">
-        <p>&copy; 2026 Ameallionworms. All rights reserved. Keller, TX.</p>
+        <p>&copy; 2026 A Meallion Worms LLC. All rights reserved. Keller, TX.</p>
     </footer>
 
     <script>
@@ -320,8 +294,6 @@
                 btn.classList.add('text-brand-gold', 'bg-white/5');
             });
 
-            // Auto-close menu
-            document.getElementById('mobile-menu').classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
