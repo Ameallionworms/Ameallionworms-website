@@ -92,10 +92,12 @@
                 </div>
 
                 <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center">
-                    <button onclick="switchPage('home')" class="nav-btn nav-home text-brand-gold border-brand-gold px-2 py-2 text-sm lg:text-base font-bold transition-colors border-b-2">Home</button>
-                    <button onclick="switchPage('pricing')" class="nav-btn nav-pricing text-gray-300 border-transparent hover:text-brand-gold px-2 py-2 text-sm lg:text-base font-bold transition-colors border-b-2 hover:border-brand-gold">Pricing</button>
-                    <button onclick="switchPage('contact')" class="nav-btn nav-contact text-gray-300 border-transparent hover:text-brand-gold px-2 py-2 text-sm lg:text-base font-bold transition-colors border-b-2 hover:border-brand-gold">Contact Us</button>
+                <nav class="hidden md:flex space-x-4 lg:space-x-6 items-center">
+                    <button onclick="switchPage('home')" class="nav-btn nav-home text-brand-gold border-brand-gold px-2 py-2 text-sm font-bold transition-colors border-b-2">Home</button>
+                    <button onclick="switchPage('pricing')" class="nav-btn nav-pricing text-gray-300 border-transparent hover:text-brand-gold px-2 py-2 text-sm font-bold transition-colors border-b-2 hover:border-brand-gold">Pricing</button>
+                    <button onclick="switchPage('storage')" class="nav-btn nav-storage text-gray-300 border-transparent hover:text-brand-gold px-2 py-2 text-sm font-bold transition-colors border-b-2 hover:border-brand-gold">Storage Guide</button>
+                    <button onclick="switchPage('frass')" class="nav-btn nav-frass text-gray-300 border-transparent hover:text-brand-gold px-2 py-2 text-sm font-bold transition-colors border-b-2 hover:border-brand-gold">Frass Guide</button>
+                    <button onclick="switchPage('contact')" class="nav-btn nav-contact text-gray-300 border-transparent hover:text-brand-gold px-2 py-2 text-sm font-bold transition-colors border-b-2 hover:border-brand-gold">Contact Us</button>
                 </nav>
 
                 <!-- Mobile Navigation Hamburger -->
@@ -114,6 +116,8 @@
             <div class="px-4 pt-2 pb-6 space-y-2">
                 <button onclick="switchPage('home'); toggleMobileMenu()" class="nav-btn-mobile nav-home-mobile block w-full text-left px-4 py-3 text-brand-gold font-bold text-xl rounded-md bg-white/5">Home</button>
                 <button onclick="switchPage('pricing'); toggleMobileMenu()" class="nav-btn-mobile nav-pricing-mobile block w-full text-left px-4 py-3 text-gray-300 hover:text-brand-gold font-bold text-xl rounded-md">Pricing</button>
+                <button onclick="switchPage('storage'); toggleMobileMenu()" class="nav-btn-mobile nav-storage-mobile block w-full text-left px-4 py-3 text-gray-300 hover:text-brand-gold font-bold text-xl rounded-md">Storage Guide</button>
+                <button onclick="switchPage('frass'); toggleMobileMenu()" class="nav-btn-mobile nav-frass-mobile block w-full text-left px-4 py-3 text-gray-300 hover:text-brand-gold font-bold text-xl rounded-md">Frass Guide</button>
                 <button onclick="switchPage('contact'); toggleMobileMenu()" class="nav-btn-mobile nav-contact-mobile block w-full text-left px-4 py-3 text-gray-300 hover:text-brand-gold font-bold text-xl rounded-md">Contact Us</button>
             </div>
         </div>
@@ -124,26 +128,21 @@
         <!-- ================= HOME PAGE ================= -->
         <section id="page-home" class="page-section active">
             <div class="bg-white rounded-[2rem] shadow-xl overflow-hidden flex flex-col lg:flex-row border border-gray-100">
-                
                 <!-- Left Blue Box -->
                 <div class="bg-brand-navy text-white p-8 md:p-12 lg:p-16 lg:w-1/2 flex flex-col justify-center relative overflow-hidden">
                     <span class="text-brand-gold text-xl md:text-2xl font-black tracking-widest uppercase mb-4">Keller, Texas</span>
-                    
                     <h1 class="responsive-title font-black mb-6 uppercase tracking-tighter text-white drop-shadow-md" style="font-family: 'Impact', sans-serif;">
                         A MEALLION<br>WORMS
                     </h1>
-                    
                     <h2 class="responsive-subtitle text-gray-200 font-bold mb-12 tracking-wide balanced-text">
                         Premium Texas Raised Mealworms
                     </h2>
-                    
                     <div>
                         <span class="inline-flex items-center px-8 py-5 border-2 border-brand-gold rounded-full text-lg md:text-xl font-black bg-brand-gold/10 text-brand-gold tracking-wider shadow-sm">
                             ★ LONE STAR QUALITY
                         </span>
                     </div>
                 </div>
-                
                 <!-- Right White Box -->
                 <div class="p-8 md:p-12 lg:w-1/2 flex flex-col justify-center space-y-16">
                     <div class="flex items-start">
@@ -155,7 +154,6 @@
                             <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text">Scalable weekly harvests for our local partners.</p>
                         </div>
                     </div>
-
                     <div class="flex items-start">
                         <div class="flex-shrink-0">
                             <div class="flex items-center justify-center h-20 w-20 rounded-full bg-brand-red text-white font-black text-4xl shadow-md">2</div>
@@ -165,7 +163,6 @@
                             <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text">Bypass expensive overnight shipping, weather delays, and costly transit die-offs with direct DFW delivery.</p>
                         </div>
                     </div>
-
                     <div class="flex items-start">
                         <div class="flex-shrink-0">
                             <div class="flex items-center justify-center h-20 w-20 rounded-full bg-brand-gold text-white font-black text-4xl shadow-md">3</div>
@@ -184,24 +181,95 @@
             <div class="text-center mb-12">
                 <h2 class="text-5xl md:text-7xl font-black text-brand-navy uppercase tracking-tighter mb-4 mt-8" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">PRICING</h2>
                 <div class="w-24 h-1.5 bg-brand-red mx-auto"></div>
-                <!-- Resized bold subheadline -->
                 <p class="text-2xl md:text-3xl lg:text-4xl text-brand-navy mt-10 max-w-4xl mx-auto font-black tracking-tight uppercase leading-tight balanced-text">Flexible volumes tailored to your needs</p>
             </div>
-
             <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden max-w-4xl mx-auto mx-4 sm:mx-auto">
                 <div class="p-8 md:p-12 text-center">
-                    <!-- Clean summary without oversharing B2B secrets -->
                     <p class="text-xl md:text-2xl text-gray-600 font-medium balanced-text max-w-3xl mx-auto mb-8 leading-relaxed">
                         Whether you are looking to secure large, recurring monthly harvests for your local business or just need a smaller retail size for individual use, we can accommodate your requirements. We also offer premium, dry-sifted insect frass for soil building.
                     </p>
                 </div>
-                
-                <!-- Single Call to Action with non-wrapping email -->
                 <div class="bg-brand-navy text-white text-center py-12 px-6 border-t-4 border-brand-gold">
                     <span class="block text-brand-gold font-bold uppercase tracking-widest mb-3 text-sm md:text-base">Contact us for current rates</span>
                     <a href="mailto:info@ameallionworms.com" class="inline-block text-2xl md:text-4xl lg:text-5xl font-black tracking-tight hover:text-brand-gold transition-colors whitespace-nowrap">
                         info@ameallionworms.com
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= STORAGE GUIDE PAGE ================= -->
+        <section id="page-storage" class="page-section">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-6xl font-black text-brand-navy uppercase tracking-tighter mb-4 mt-8" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">Care & Storage</h2>
+                <div class="w-24 h-1.5 bg-brand-red mx-auto"></div>
+                <p class="text-xl md:text-2xl text-brand-navy mt-6 max-w-3xl mx-auto font-bold tracking-tight balanced-text">Maintain your bulk inventory for up to 3 months.</p>
+            </div>
+            
+            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden max-w-4xl mx-auto p-8 md:p-12">
+                <h3 class="text-2xl font-black text-brand-navy border-b-2 border-brand-gold pb-2 mb-6">The Cold Storage Setup</h3>
+                <ul class="space-y-4 mb-10 text-lg text-gray-700">
+                    <li class="flex items-start"><span class="text-brand-gold mr-3 mt-1">■</span> <strong>Temperature:</strong> 42°F to 50°F. (Below 40°F causes death; above 55°F triggers pupation).</li>
+                    <li class="flex items-start"><span class="text-brand-gold mr-3 mt-1">■</span> <strong>Substrate:</strong> 1 to 2 inches of dry wheat bran in shallow, ventilated trays.</li>
+                    <li class="flex items-start"><span class="text-brand-gold mr-3 mt-1">■</span> <strong>Moisture Limit:</strong> Never put wet vegetables in the refrigerator. Condensation causes fatal mold.</li>
+                </ul>
+
+                <h3 class="text-2xl font-black text-brand-navy border-b-2 border-brand-gold pb-2 mb-6">Maintenance Cycle (Every 2-4 weeks)</h3>
+                <ul class="space-y-4 mb-10 text-lg text-gray-700">
+                    <li class="flex items-start"><span class="text-brand-gold mr-3 mt-1">■</span> <strong>1. Wake up:</strong> Remove trays from the fridge. Let them rest at room temperature for 24 hours.</li>
+                    <li class="flex items-start"><span class="text-brand-gold mr-3 mt-1">■</span> <strong>2. Hydrate:</strong> Add thick slices of potatoes or carrots directly on top of the bran.</li>
+                    <li class="flex items-start"><span class="text-brand-gold mr-3 mt-1">■</span> <strong>3. Clean:</strong> After 24 hours of feeding, sift out all vegetables and frass.</li>
+                    <li class="flex items-start"><span class="text-brand-gold mr-3 mt-1">■</span> <strong>4. Store:</strong> Return the clean, dry trays to the refrigerator.</li>
+                </ul>
+
+                <h3 class="text-2xl font-black text-brand-navy border-b-2 border-brand-gold pb-2 mb-6">Transport</h3>
+                <ul class="space-y-4 text-lg text-gray-700">
+                    <li class="flex items-start"><span class="text-brand-gold mr-3 mt-1">■</span> Always use breathable, ventilated containers.</li>
+                    <li class="flex items-start"><span class="text-brand-gold mr-3 mt-1">■</span> Keep temperatures below 85°F and out of direct sunlight.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ================= FRASS GUIDE PAGE ================= -->
+        <section id="page-frass" class="page-section">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-6xl font-black text-brand-navy uppercase tracking-tighter mb-4 mt-8" style="font-family: 'Impact', sans-serif; letter-spacing: 0.02em;">Frass Guide</h2>
+                <div class="w-24 h-1.5 bg-brand-red mx-auto"></div>
+                <p class="text-xl md:text-2xl text-brand-navy mt-6 max-w-3xl mx-auto font-bold tracking-tight balanced-text">Organic insect fertilizer for stronger, healthier plants.</p>
+            </div>
+            
+            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden max-w-4xl mx-auto p-8 md:p-12">
+                
+                <p class="text-lg md:text-xl text-gray-700 font-medium mb-10 leading-relaxed border-l-4 border-brand-gold pl-6">
+                    Frass is a premium organic insect manure. It provides slow-release nutrients and is packed with chitin. When plants detect chitin, it triggers their natural defenses, resulting in stronger root systems and thicker cell walls.
+                </p>
+
+                <h3 class="text-2xl font-black text-brand-navy border-b-2 border-brand-gold pb-2 mb-6">How to Apply Frass</h3>
+                
+                <div class="space-y-8 text-lg text-gray-700">
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                        <h4 class="font-black text-brand-navy text-xl mb-2 flex items-center">
+                            <span class="bg-brand-navy text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3 text-sm">1</span> 
+                            Soil Mixing (For New Plants)
+                        </h4>
+                        <p class="ml-11">Mix <strong>1 cup of frass</strong> per <strong>1 cubic foot</strong> of potting soil before planting to establish a long-term nutrient base.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                        <h4 class="font-black text-brand-navy text-xl mb-2 flex items-center">
+                            <span class="bg-brand-red text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3 text-sm">2</span> 
+                            Top Dressing (For Established Plants)
+                        </h4>
+                        <p class="ml-11">Sprinkle a thin layer over the topsoil, gently scratch it into the surface, and water thoroughly. Reapply every 3 to 4 weeks.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                        <h4 class="font-black text-brand-navy text-xl mb-2 flex items-center">
+                            <span class="bg-brand-gold text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3 text-sm">3</span> 
+                            Liquid Tea
+                        </h4>
+                        <p class="ml-11">Steep <strong>1/2 cup of frass</strong> in <strong>1 gallon</strong> of dechlorinated water for 2 to 24 hours. Use the strained liquid as a root drench or foliar spray.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -229,7 +297,7 @@
                                 </div>
                             </div>
 
-                            <!-- Email Card (Stacked icon on mobile/desktop to prevent wrapping) -->
+                            <!-- Email Card -->
                             <div class="flex flex-col items-center bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full md:w-1/2 transform transition hover:-translate-y-1">
                                 <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gray-50 flex items-center justify-center border-2 border-brand-gold mb-4">
                                     <svg class="h-8 w-8 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
